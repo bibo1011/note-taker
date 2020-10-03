@@ -16,6 +16,12 @@ app.listen(PORT, () => {
 
 const text = require('./db/db.json')
 
+// Functions
+function findById(id, textArray) {
+    const result = textArray.filter(text => text.id === id)[0];
+    return result;
+}
+
 // HTML routes
 // index works even if commented
 // app.get('*', (req, res) => {
@@ -37,6 +43,21 @@ app.post('/api/notes', (req, res) => {
     res.json(newText);
 })
 
-//
+// DEL route
+app.delete('/api/notes/:id', (req, res) => {
+    // res.send('requset to delete')
+    // console.log('requset to delete')
+    const id = req.params.id;
+    const text = req.body;
+    text.removeText(id, (err, text) => {
+        if (err) {
+        throw err;
+        }
+    // console.log(removeText())
+    res.json(text);
+
+    });
+});
+
 
 
