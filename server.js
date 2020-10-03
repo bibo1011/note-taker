@@ -23,10 +23,9 @@ function findById(id, textArray) {
 }
 
 // HTML routes
-// index works even if commented
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'index.html'));
-// });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
 });
@@ -44,20 +43,20 @@ app.post('/api/notes', (req, res) => {
 })
 
 // DEL route
-app.delete('/api/notes/:id', (req, res) => {
-    // res.send('requset to delete')
-    // console.log('requset to delete')
-    const id = req.params.id;
-    const text = req.body;
-    text.removeText(id, (err, text) => {
-        if (err) {
-        throw err;
-        }
-    // console.log(removeText())
-    res.json(text);
+// app.delete('/api/notes/:id', (req, res) => {
+//     // res.send('requset to delete')
+//     // console.log('requset to delete')
+//     const id = req.params.id;
+//     const text = req.body;
+//     text.removeText(id, (err, text) => {
+//         if (err) {
+//         throw err;
+//         }
+//     // console.log(removeText())
+//     res.json(text);
 
-    });
-});
+//     });
+// });
 
 
 
