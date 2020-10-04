@@ -16,12 +16,6 @@ app.listen(PORT, () => {
 
 const text = require('./db/db.json')
 
-// Functions
-function findById(id, textArray) {
-    const result = textArray.filter(text => text.id === id)[0];
-    return result;
-}
-
 // HTML routes
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
