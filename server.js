@@ -36,29 +36,13 @@ app.get('/api/notes', (req, res) => {
 })
 app.post('/api/notes', (req, res) => {
     const newText = req.body;
-    // console.log(uniqid('note'));
     req.body.id = uniqid('note');
     text.push(newText);
     res.json(newText);
 })
 
 // DEL route
-// app.delete('/api/notes/:id', (req, res) => {
-    // text = fs.readFileSync("./db/db.json", "utf8");
-    // console.log(text);
-    // res.send('requset to delete')
-    // console.log('requset to delete')
-    // const id = req.params.id;
-    // const text = req.body;
-    // text.removeText(id, (err, text) => {
-    //     if (err) {
-    //     throw err;
-    //     }
-    // console.log(removeText())
-    // res.json(text);
 
-    // });
-// });
 
 
 
